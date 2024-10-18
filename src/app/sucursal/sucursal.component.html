@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <app-menu></app-menu>
+
+  <div class="container-table">
+    <div class="row">
+      <span class="welcome-message">Sucursal</span>
+      <nav>
+        <a href="/registrosucursal"><b>Agregar nueva sucursal</b></a>
+      </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>ID Empresa</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sucursal of sucursal">
+              <td>{{ sucursal.idsucursal }}</td>
+              <td>{{ sucursal.nombre }}</td>
+              <td>{{ sucursal.direccion }}</td>
+              <td>{{ getEmpresa(sucursal.idempresa) }}</td>
+              <td>
+                <button type="button" class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(sucursal.idsucursal)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

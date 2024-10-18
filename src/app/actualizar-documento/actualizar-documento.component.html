@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Actualizar  Nodocumento</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Persona</span>
+          <select [(ngModel)]="nuevaDocumento" name="documentoSeleccionada" required>
+            <option *ngFor="let documento of documento" [ngValue]="documento">{{ documento.IdPersona + " " + documento.nombre }}</option>
+          </select>
+        </div>
+
+
+        <!-- Mostrar el tipo de documento seleccionado -->
+<div class="input-box">
+  <span class="details">Tipo de Documento Seleccionado: </span>
+  <span>{{ nuevaDocumento.IdTipoDocumento + " " + nuevaDocumento.Tipo_Documento }}</span> <!-- Muestra el ID del documento seleccionado -->
+</div>
+
+
+
+
+        <div class="input-box">
+          <span class="details">NoDocumento</span>
+          <input type="text" placeholder="Ingrese el nodocumento" [(ngModel)]="nuevaDocumento.nodocumento" name="nodocumento"
+            required>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Actualizar Documento</button>
+      </div>
+      <nav>
+        <a href="/documentopersona"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

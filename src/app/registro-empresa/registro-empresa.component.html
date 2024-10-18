@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Registrar nueva empresa</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Nombre empresa" [(ngModel)]="nuevaEmpresa.nombre" name="nombre" required>
+        </div>
+        <div class="input-box">
+          <span class="details">NIT</span>
+          <input type="text" placeholder="Ingrese el NIT" [(ngModel)]="nuevaEmpresa.nit" name="nit"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Dirección</span>
+          <input type="text" placeholder="Ingrese la dirección" [(ngModel)]="nuevaEmpresa.direccion" name="direccion"
+            required>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Registrar empresa</button>
+      </div>
+      <nav>
+        <a href="/empresa"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

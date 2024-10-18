@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<app-menu></app-menu>
+
+  <!-- Contenedor de la tabla -->
+  <div class="container-table">
+    <div class="row">
+      <nav>
+        <a href="/registropersona"><b>Agregar nueva persona</b></a>
+        <br>
+        <a href="/documentopersona"><b>Ver Documentos Persona</b></a>
+      </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Direccion</th>
+              <th>Fecha Nacimiento</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of persona">
+              <td>{{ persona.idpersona }}</td>
+              <td>{{ persona.nombre }}</td>
+              <td>{{ persona.apellido }}</td>
+              <td>{{ persona.direccion }}</td>
+              <td>{{ persona.fechanacimiento }}</td>
+              <td>
+                <button type="button" class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(persona.idpersona)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

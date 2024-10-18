@@ -1,11 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css',
 })
@@ -14,11 +16,20 @@ export class MenuComponent {
   usuario: any = {};
 
   constructor(private http: HttpClient) {
-    let t = localStorage.getItem('usuario');
+    let t = sessionStorage.getItem('usuario');
     if (t) {
       this.usuario = JSON.parse(t);
     }
     this.buscarUsuario();
+  }
+
+  ngOnInit(): void {
+    const usuarioStr = sessionStorage.getItem("usuario");
+    if (usuarioStr) {
+      this.usuario = JSON.parse(usuarioStr);
+    } else {
+      location.href = "/"; 
+    }
   }
 
   buscarUsuario() {
@@ -30,11 +41,11 @@ export class MenuComponent {
   }
 
   logout() {
-    const usuario = JSON.parse(localStorage.getItem('usuario')!);
+    const usuario = JSON.parse(sessionStorage.getItem('usuario')!);
     if (usuario) {
       this.servicioLogout(usuario).subscribe({
         next: () => {
-          localStorage.removeItem('usuario'); // Limpiar datos del usuario
+          sessionStorage.removeItem('usuario'); // Limpiar datos del usuario
           alert('Sesión cerrada correctamente.');
           location.href = '/'; // Redirigir a la página de inicio de sesión
         },
@@ -62,4 +73,10 @@ export class MenuComponent {
     );
   }
 
+  activeSubmenu: string | null = null; // Para rastrear el submenú activo
+
+  toggleSubmenu(submenu: string): void {
+    this.activeSubmenu = this.activeSubmenu === submenu ? null : submenu;
+  }
+  
 }

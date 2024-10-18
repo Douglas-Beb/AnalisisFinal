@@ -17,22 +17,32 @@ export class PreguntaSeguridadComponent {
   usuario: any = {};
 
   constructor(private http: HttpClient) {
-    const t = localStorage.getItem('usuario');
+
+    this.cargarUsuarios();
+
+    const t = sessionStorage.getItem('usuario');
     if (t) {
       this.usuario = JSON.parse(t);
-      this.nuevoUsuario.idusuario = this.usuario.idusuario; // Asignar el ID de usuario por defecto
+      this.nuevoUsuario.idusuario = this.usuario.idusuario; 
     }
+  }
+
+  cargarUsuarios() {
+    this.http.get<any[]>("http://localhost:8080/usuario/buscar").subscribe(
+      data => this.usuario = data,
+      error => console.error("Error al cargar usuarios", error)
+    );
   }
 
   guardarUsuario() {
     this.servicioGuardarUsuario(this.nuevoUsuario).subscribe(
       (respuesta: any) => {
-        console.log('Pregunta de seguridad guardada con éxito', respuesta);
+        alert('Pregunta de seguridad guardada con éxito');
         this.nuevoUsuario = {};
         window.history.back();
       },
       (error: any) => {
-        console.error('Error al guardar la pregunta de seguridad', error);
+        alert('Error al guardar la pregunta de seguridad');
       }
     );
   }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentos Personas</title>
+</head>
+
+<body>
+
+  <app-menu></app-menu>
+
+  <!-- Contenedor de la tabla -->
+  <div class="container-table">
+    <h2 class="welcome-message">Documentos Personas</h2>
+
+    <!-- Combo Box para seleccionar un nombre de persona -->
+    <select id="personaSelect" [(ngModel)]="nombreSeleccionado" (change)="filtrarPorPersona()">
+      <option value="">Seleccionar persona</option> <!-- Opción por defecto -->
+      <option *ngFor="let persona of nombresUnicos" [value]="persona">
+        {{ persona }}
+      </option>
+    </select>
+
+    <div class="row">
+      <nav>
+        <a href="/registrodocumento"><b>Agregar nuevo documento</b></a>
+      </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Documento</th>
+              <th>#</th>
+              <th>Persona</th>
+              <th>No_Documento</th>
+              <th>Fecha_Creacion</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let documento of documento">
+              <td>{{ documento.IdTipoDocumento }}</td>
+              <td>{{ documento.Tipo_Documento }}</td>
+              <td>{{ documento.IdPersona }}</td>
+              <td>{{ documento.nombre }}</td>
+              <td>{{ documento.nodocumento }}</td>
+              <td>{{ documento.FechaCreacion }}</td>
+              <td>
+                <button type="button" class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(documento.IdTipoDocumento, documento.IdPersona)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

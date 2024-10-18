@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Actualizar una sucursal</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <select [(ngModel)]="nuevaSucursal" name="empresaSeleccionada" required>
+            <option *ngFor="let sucursal of sucursal" [ngValue]="sucursal">{{ sucursal.nombre }}</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <span class="details">Dirección</span>
+          <input type="text" placeholder="Ingrese el NIT" [(ngModel)]="nuevaSucursal.direccion" name="nit"
+            required>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Actualizar Sucursal</button>
+      </div>
+      <nav>
+        <a href="/sucursal"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

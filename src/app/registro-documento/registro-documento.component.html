@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Registrar Documento </div>
+    <form id="formulario">
+      <div class="user-details">
+
+        <div class="input-box">
+          <span class="details">Persona</span>
+          <select [(ngModel)]="nuevaDocumento.idpersona" name="documentopersona" required>
+            <option *ngFor="let docidpersona of docidpersona" [value]="docidpersona.idpersona">{{ docidpersona.nombre }}</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <span class="details">No Documento</span>
+          <input type="text" placeholder="Ingrese el nombre" [(ngModel)]="nuevaDocumento.nodocumento" name="nodocumento" required>
+        </div>
+
+
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" [(ngModel)]="nuevaDocumento.idtipodocumento" [value]="1">
+          <input type="radio" name="gender" id="dot-2" [(ngModel)]="nuevaDocumento.idtipodocumento" [value]="2">
+          <input type="radio" name="gender" id="dot-3" [(ngModel)]="nuevaDocumento.idtipodocumento" [value]="3">
+          <input type="radio" name="gender" id="dot-4" [(ngModel)]="nuevaDocumento.idtipodocumento" [value]="4">
+          <input type="radio" name="gender" id="dot-5" [(ngModel)]="nuevaDocumento.idtipodocumento" [value]="5">
+
+          <span class="gender-title">Tipo de documento</span>
+
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">DPI</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Pasaporte</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">NIT</span>
+            </label>
+            <label for="dot-4">
+              <span class="dot four"></span>
+              <span class="gender">Licencia de conducir</span>
+            </label>
+            <label for="dot-5">
+              <span class="dot five"></span>
+              <span class="gender">Seguro Social IGSS</span>
+            </label>
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
+      <div class="button">
+        <button type="button" (click) = "agregar()">Registrar Documento</button>
+      </div>
+      <nav>
+        <a href="/documentopersona"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <app-menu></app-menu>
+
+  <div class="container-table">
+    <div class="row">
+      <span class="welcome-message">Empresas</span>
+      <nav>
+        <a href="/registroempresa"><b>Agregar nueva empresa</b></a>
+      </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>NIT</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let empresa of empresa">
+              <td>{{ empresa.idempresa }}</td>
+              <td>{{ empresa.nombre }}</td>
+              <td>{{ empresa.direccion }}</td>
+              <td>{{ empresa.nit }}</td>
+              <td>
+                <button type="button" class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(empresa.idempresa)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

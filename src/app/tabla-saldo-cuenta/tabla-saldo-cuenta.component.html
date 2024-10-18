@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla saldo cuenta</title>
+  <link rel="stylesheet" href="tabla-saldo-cuenta.component.css">
+</head>
+
+<body>
+
+  <!-- Contenedor de la tabla -->
+  <div class="container-table">
+    <div class="row">
+      <nav class="navbar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <a class="nav-link active" href="/tablasaldocuenta"><b>Saldo cuenta</b></a>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tablatipomovimientocxc"><b>Tipo movimiento cxc</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tablastatuscuenta"><b>Status cuenta</b></a>
+            </li>
+        </ul>
+    </nav>
+
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <nav>
+              <a href="/menu"><b>Regresar</b></a>
+            </nav>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Estado cuenta</th>
+              <th>Saldo Anterior</th>
+              <th>Debitos</th>
+              <th>Creditos</th>
+              <th>Saldo actual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let saldo of saldocuentanombre">
+              <td>{{ saldo.idsaldocuenta }}</td>
+              <td>{{ getPersonaNombre(saldo.idpersona) }}</td>
+              <td>{{ getStatusCuenta(saldo.idstatuscuenta) }}</td>
+              <td>Q {{ saldo.saldoanterior }}</td>
+              <td>Q {{ saldo.debitos }}</td>
+              <td>Q {{ saldo.creditos }}</td>
+              <td>Q {{ saldo.saldoactual }}</td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

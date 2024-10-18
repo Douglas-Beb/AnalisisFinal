@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar</title>
+  <link rel="stylesheet" href="actualizar-tipo-movimiento-cxc.component.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Actualizar Tipo Movimiento cxc</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">ID Tipo Movimiento cxc</span>
+          <select [(ngModel)]="actualizarTipoMovimientocxc" name="tipomovimientoseleccionado" required>
+            <option *ngFor="let tipomovimientocxc of tipomovimientocxc" [ngValue]="tipomovimientocxc">{{ tipomovimientocxc.idtipomovimientocxc }}</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Ingrese el nombre" [(ngModel)]="actualizarTipoMovimientocxc.nombre" name="nombre"
+            required>
+        </div>
+
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Actualizar Tipo movimiento cxc </button>
+      </div>
+      <nav>
+        <a href="/tablatipomovimientocxc"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

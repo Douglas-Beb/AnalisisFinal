@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipo Movimiento cxc</title>
+  <link rel="stylesheet" href="tabla-tipo-movimiento-cxc.component.css">
+</head>
+
+<body>
+
+  <!-- Contenedor de la tabla -->
+  <div class="container-table">
+    <div class="row">
+      <nav class="navbar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <a class="nav-link " href="/tipomovimientocxc"><b>Registrar Tipo Movimiento cxc</b></a>
+          </li>
+        </ul>
+    </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <nav>
+              <a href="/tablasaldocuenta"><b>Regresar</b></a>
+            </nav>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Operación cuenta corriente</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tipomovimientocxc of tipomovimientocxc">
+              <td>{{ tipomovimientocxc.idtipomovimientocxc }}</td>
+              <td>{{ tipomovimientocxc.nombre }}</td>
+              <td>{{ tipomovimientocxc.operacioncuentacorriente }}</td>
+              <td>
+                <button type="button" class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(tipomovimientocxc.idtipomovimientocxc)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/tablasaldocuenta"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>

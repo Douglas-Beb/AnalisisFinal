@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+  height: 100%; /* Asegura que el body y html ocupen toda la altura */
+}
+
+body {
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  display: flex;
+  justify-content: center; /* Centra el contenedor horizontalmente */
+  align-items: flex-start; /* Alinea el contenedor desde la parte superior */
+  min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la ventana */
+}
+
+.container-table {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 20px; /* Espacio superior */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Añade una sombra para darle un efecto elevado */
+}
+
+.navbar {
+  background-color: #71b7e6; /* Color de fondo para la barra de navegación */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+.nav {
+  list-style-type: none; /* Quita los puntos de la lista */
+  display: flex; /* Usa flexbox para alinear los elementos */
+  padding: 0; /* Elimina el padding de la lista */
+}
+
+.nav-item {
+  margin-right: 15px; /* Espaciado entre los elementos */
+}
+
+.nav-link {
+  text-decoration: none; /* Sin subrayado */
+  color: #fff; /* Color de texto blanco */
+  padding: 10px 15px; /* Espaciado interno para los enlaces */
+  border-radius: 5px; /* Bordes redondeados para los enlaces */
+  transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.nav-link:hover {
+  background-color: #9b59b6; /* Color de fondo al pasar el mouse */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.table tr:hover {
+  background-color: #f5f5f5;
+}

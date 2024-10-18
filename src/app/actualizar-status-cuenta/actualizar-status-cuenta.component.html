@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar</title>
+  <link rel="stylesheet" href="actualizar-status-cuenta.component.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Actualizar Status cuenta</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">ID Status cuenta</span>
+          <select [(ngModel)]="actualizarStatusCuenta" name="empresaSeleccionada" required>
+            <option *ngFor="let statuscuenta of statuscuenta" [ngValue]="statuscuenta">{{ statuscuenta.idstatuscuenta }}</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Ingrese el nombre" [(ngModel)]="actualizarStatusCuenta.nombre" name="nombre"
+            required>
+        </div>
+
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Actualizar Status cuenta</button>
+      </div>
+      <nav>
+        <a href="/tablastatuscuenta"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

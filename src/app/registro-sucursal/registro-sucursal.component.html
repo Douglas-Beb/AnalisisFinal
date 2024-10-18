@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Registrar nueva sucursal</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Nombre sucursal" [(ngModel)]="nuevaSucursal.nombre" name="nombre" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Dirección</span>
+          <input type="text" placeholder="Ingrese la dirección" [(ngModel)]="nuevaSucursal.direccion" name="direccion"
+            required>
+        </div>
+         
+        <!-- Agregar empresa -->
+        <div class="input-box">
+          <span class="details">Empresa</span>
+          <select [(ngModel)]="nuevaSucursal.idempresa" name="idempresa" required>
+            <option *ngFor="let empresa of empresa" [value]="empresa.idempresa">{{empresa.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Registrar sucursal</button>
+      </div>
+      <nav>
+        <a href="/sucursal"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

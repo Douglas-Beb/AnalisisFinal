@@ -2,44 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 
 <body>
 	<header class="header">
 		<div class="container">
-		<div class="btn-menu">
-			<label for="btn-menu">☰</label>
-		</div>
+			<div class="btn-menu">
+				<label for="btn-menu">☰</label>
+			</div>
 			<div class="logo">
 				<h1>Logotipo</h1>
 			</div>
+
+			<span class="welcome-message">¡Bienvenido {{usuario.nombre}} {{usuario.apellido}}!</span>
+
 			<nav class="menu">
-				<a href="#">Inicio</a>
-				<a href="#">Nosotros</a>
-				<a href="#">Blog</a>
-				<a href="#">Contacto</a>
+				<a href="/menu">Inicio</a>
+				<a href="/miperfil">Perfil</a>
 				<a href="/preguntaSeguridad">Seguridad</a>
-        <button type="button" class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
+				<button type="button" class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
 			</nav>
 		</div>
 	</header>
 	<div class="capa"></div>
-<!--	--------------->
-<span class="welcome-message">¡Bienvenido {{usuario.nombre}} {{usuario.apellido}}!</span>
-<input type="checkbox" id="btn-menu">
-<div class="container-menu">
-	<div class="cont-menu">
-		<nav>
-			<a href="#"><b>Usuarios</b></a>
-			<a href="#"><b>Empresa</b></a>
-			<a href="#"><b>Sucursal</b></a>
-		</nav>
-		<label for="btn-menu">✖️</label>
-	</div>
-</div>
+
+	<input type="checkbox" id="btn-menu">
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+				<div class="menu-item">
+					<a href="/menu"><b>Inicio</b></a>
+				</div>
+                <div class="menu-item" [class.active]="activeSubmenu === 'parametros'">
+                    <b (click)="toggleSubmenu('parametros')">Parámetros generales</b>
+                    <ul class="submenu" *ngIf="activeSubmenu === 'parametros'">
+						<li><a href="/genero">Generos</a></li>
+						<li><a href="/usuarios">Usuarios</a></li>
+						<li><a href="/empresa">Empresas</a></li>
+						<li><a href="/sucursal">Sucursales</a></li>
+                    </ul>
+                </div>
+                <div class="menu-item" [class.active]="activeSubmenu === 'gestion'">
+                    <b (click)="toggleSubmenu('gestion')">Gestión personas</b>
+                    <ul class="submenu" *ngIf="activeSubmenu === 'gestion'">
+                        <li><a href="/persona">Personas/Clientes</a></li>
+                        <li><a href="/estadocuenta">Movimientos cuenta</a></li>
+						<li><a href="/movcuenta">Saldos</a></li>
+						<li><a href="/tablasaldocuenta">Consulta Saldo Cuenta</a></li>
+                    </ul>
+                </div>
+                <div class="menu-item" [class.active]="activeSubmenu === 'procesos'">
+                    <b (click)="toggleSubmenu('procesos')">Procesos</b>
+                    <ul class="submenu" *ngIf="activeSubmenu === 'procesos'">
+                        <li><a href="/cierre">Cierres</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <label for="btn-menu">✖️</label>
+        </div>
+    </div>
 
 </body>
 </html>

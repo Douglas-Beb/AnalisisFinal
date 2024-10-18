@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualizar</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Actualizar una empresa</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <select [(ngModel)]="nuevaPersona" name="empresaSeleccionada" required>
+            <option *ngFor="let persona of persona" [ngValue]="persona">{{ persona.nombre }}</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Ingrese el nombre" [(ngModel)]="nuevaPersona.nombre" name="nombre"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Apellido</span>
+          <input type="text" placeholder="Ingrese el apellido" [(ngModel)]="nuevaPersona.apellido" name="apellido"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Fecha de nacimiento</span>
+          <input type="date" [(ngModel)]="nuevaPersona.fechanacimiento" name="fechanacimiento" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Telefono</span>
+          <input type="text" placeholder="Ingrese el telefono" [(ngModel)]="nuevaPersona.telefono" name="telefeno"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Correo Electronico</span>
+          <input type="text" placeholder="Ingrese el correo electronico" [(ngModel)]="nuevaPersona.correoelectronico" name="correoelectronico"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Direccion</span>
+          <input type="text" placeholder="Ingrese su direccion" [(ngModel)]="nuevaPersona.direccion" name="direccion"
+            required>
+        </div>
+
+
+      </div>
+      <!-- Selección de Estado Civil -->
+<label for="estadoCivil">Estado Civil</label>
+<select id="estadoCivil" [(ngModel)]="nuevaPersona.idestadocivil" name="idestadocivil" required>
+  <option *ngFor="let estado of estado" [value]="estado.idestadocivil">
+    {{ estado.nombre }}
+  </option>
+</select>
+
+      <div class="button">
+        <button type="button" (click) = "agregar()">Actualizar empresa</button>
+      </div>
+      <nav>
+        <a href="/persona"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

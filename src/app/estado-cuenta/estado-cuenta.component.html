@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de cuentas</title>
+</head>
+
+
+<body>
+
+<app-menu></app-menu>
+
+  <br><br><br><br>
+
+  <!-- Combo Box to Select Name -->
+  <div class="container-table">
+    <div class="row">
+      <span class="welcome-message">Estado de cuenta</span>
+      <div class="col-md-12">
+        <label for="nombreSelect">Seleccionar nombre:</label>
+        <!-- Combo box de nombres únicos -->
+<select id="nombreSelect" [(ngModel)]="nombreSeleccionado" (change)="filtrarPorNombre()">
+  <option value="">Todos</option> <!-- Opción para mostrar todos los registros -->
+  <option *ngFor="let nombre of nombresUnicos" [value]="nombre">
+    {{ nombre }}
+  </option>
+</select>
+
+      <!-- Tabla que muestra los documentos filtrados -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Descripción</th>
+      <th>Tipo Movimiento</th>
+      <th>Valor Movimiento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of documentosFiltrados">
+
+      <td>{{ doc.Fecha_movimiento }}</td>
+      <td>{{ doc.descripcion }}</td>
+      <td>{{ doc.tipo_movimiento }}</td>
+      <td>Q {{ doc.Valor_Movimiento }}</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+</body>
+
+</html>

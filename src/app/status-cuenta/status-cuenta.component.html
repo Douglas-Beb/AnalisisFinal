@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Estado de Cuenta</title>
+  <link rel="stylesheet" href="../status-cuenta/status-cuenta.component.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title">Registrar nueva sucursal</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Nombre sucursal" [(ngModel)]="nuevaStatusCuenta.nombre" name="nombre" required>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Registrar Status cuenta</button>
+      </div>
+      <nav>
+        <a href="/tablastatuscuenta"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+</body>
+</html>

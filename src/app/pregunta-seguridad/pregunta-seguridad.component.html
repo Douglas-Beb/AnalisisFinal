@@ -11,10 +11,12 @@
     <div class="title">Preguntas de Seguridad</div>
     <form method="post">
       <div class="group-details">
-        <div class="form-group">
-          <label for="idusuario" class="details">ID Usuario:</label>
-          <input [(ngModel)]="nuevoUsuario.idusuario" type="text" id="idusuario" name="idusuario" placeholder="Ingresa tu ID Usuario" readonly>
-        </div>
+        <div class="input-box">
+          <span class="details">Usuario</span>
+          <select [(ngModel)]="nuevoUsuario.idusuario" name="idusuario" required>
+            <option *ngFor="let usuario of usuario" [value]="usuario.idusuario">{{usuario.nombre}}</option>
+          </select>
+        </div><br>
         <div class="form-group">
           <label for="pregunta" class="details">Pregunta</label>
           <input [(ngModel)]="nuevoUsuario.pregunta" type="text" placeholder="Ingresa tu pregunta" id="pregunta" name="pregunta">
@@ -27,6 +29,9 @@
       <div class="button">
         <input type="submit" value="Guardar" (click)="guardarUsuario()">
       </div>
+      <nav>
+        <a href="/menu"><b>Regresar</b></a>
+      </nav>
     </form>
   </div>
 

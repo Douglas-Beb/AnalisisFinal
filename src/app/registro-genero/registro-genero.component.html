@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Registrar nuevo genero</div>
+    <form id="formulario">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Nombre genero" [(ngModel)]="nuevoGenero.nombre" name="nombre" required>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" (click) = "agregar()">Registrar genero</button>
+      </div>
+      <nav>
+        <a href="/genero"><b>Regresar</b></a>
+      </nav>
+    </form>
+  </div>
+
+</body>
+</html>

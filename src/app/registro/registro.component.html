@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
 </head>
+
 <body>
 
   <div class="container">
-    <div class="title">Registro</div>
+    <div class="title">Registro usuarios</div>
     <form (ngSubmit)="guardarUsuario()">
       <div class="user-details">
         <div class="input-box">
@@ -34,7 +36,7 @@
             required>
         </div>
         <div class="input-box">
-          <span class="details">Número de teléfono</span>
+          <span class="details">Telefono</span>
           <input type="text" placeholder="Ingresa tu número de teléfono" [(ngModel)]="nuevoUsuario.telefonomovil"
             name="telefono" required>
         </div>
@@ -43,15 +45,18 @@
           <input type="password" placeholder="Ingresa tu contraseña" [(ngModel)]="nuevoUsuario.password" name="password"
             (ngModelChange)="validarPassword()" required>
           <div *ngIf="!esPasswordValido" class="error-message">
-            La contraseña debe tener entre 8 y 20 caracteres, incluyendo al menos una letra mayúscula, una minúscula, un
+            La contraseña debe tener 8 caracteres, incluyendo al menos una letra mayúscula, una minúscula, un
             número, y un carácter especial ($!%*?&).
           </div>
         </div>
+
         <div class="input-box">
           <span class="details">Sucursal</span>
-          <input type="number" placeholder="Confirma tu sucursal" [(ngModel)]="nuevoUsuario.idsucursal"
-            name="idsucursal" required>
+          <select [(ngModel)]="nuevoUsuario.idsucursal" name="idsucursal" required>
+            <option *ngFor="let sucursal of sucursal" [value]="sucursal.idsucursal">{{sucursal.nombre}}</option>
+          </select>
         </div>
+
         <div class="input-box">
           <span class="details">ID Status</span>
           <input type="text" value="Activo" readonly>
@@ -80,8 +85,12 @@
       <div class="button">
         <input type="submit" value="Registro">
       </div>
+      <nav>
+        <a href="/usuarios"><b>Regresar</b></a>
+      </nav>
     </form>
   </div>
 
 </body>
+
 </html>

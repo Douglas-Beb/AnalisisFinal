@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de cuentas</title>
+</head>
+
+<body>
+  <app-menu></app-menu>
+  <br><br><br><br><br>
+
+  <div class="account-container">
+    <div class="input-box">
+      <h2><span class="details">Consulta saldo por persona</span><br><br></h2>
+      <select [(ngModel)]="saldoCuenta.idpersona" (change)="cargarSaldoCuenta(saldoCuenta.idpersona)" name="idpersona" required>
+        <option *ngFor="let cuenta of cuenta" [value]="cuenta.idpersona">{{cuenta.nombre}}&nbsp;{{cuenta.apellido}}</option>
+      </select>
+      <nav>
+        <a href="/menu"><b>Regresar</b></a>
+      </nav>
+    </div>
+
+    <div>
+      <h2>Saldo<br></h2>
+      <tr *ngIf="saldoSeleccionado">
+        
+        <td>Q {{ saldoSeleccionado.saldoactual | number:'1.2-2' }}</td>
+      </tr>
+      
+    </div>
+    
+  </div>
+  
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Perfil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <app-menu></app-menu>
+  <br><br><br><br><br>
+  <div class="capa"></div>
+  <div class="container profile-section">
+    <div class="row">
+      <!-- Perfil del Usuario -->
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="{{ usuario.fotografia }}" alt="avatar" class="rounded-circle img-fluid mb-3" style="width: 150px;">
+            <h5 class="my-3">{{usuario.nombre}} {{usuario.apellido}}</h5>
+            <p class="text-muted mb-1">{{usuario.correoelectronico}}</p>
+            <p class="text-muted mb-4">{{usuario.telefonomovil}}</p>
+            <div class="d-flex justify-content-center mb-2">
+              <button type="button" class="btn btn-primary me-2" (click)="activarEdicion()">Editar Perfil</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div *ngIf="!isEditing">
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Usuario</h6>
+                </div>
+                <div class="col-sm-9 text-muted">
+                  {{usuario.idusuario}}
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-muted">
+                  {{usuario.correoelectronico}}
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Teléfono</h6>
+                </div>
+                <div class="col-sm-9 text-muted">
+                  {{usuario.telefonomovil}}
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Fecha Nacimiento</h6>
+                </div>
+                <div class="col-sm-9 text-muted">
+                  {{usuario.fechanacimiento | date}}
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Actividad</h6>
+                </div>
+                <div class="col-sm-9 text-muted">
+                  {{usuario.ultimafechaingreso | date:'short'}}
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Último Cambio de Password</h6>
+                </div>
+                <div class="col-sm-9 text-muted">
+                  {{usuario.ultimafechacambiopassword | date:'short'}}
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="isEditing">
+              <form #perfilForm="ngForm">
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <label class="form-label"><strong>Nombre</strong></label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <label class="form-label"><strong>Apellido</strong></label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="usuario.apellido" name="apellido" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <label class="form-label"><strong>Email</strong></label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" [(ngModel)]="usuario.correoelectronico" name="email" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-sm-3">
+                    <label class="form-label"><strong>Teléfono Móvil</strong></label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="usuario.telefonomovil" name="telefono" required>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <div class="col-sm-3">
+                    <label class="form-label"><strong>Fecha Nacimiento</strong></label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="date" class="form-control" [(ngModel)]="usuario.fechanacimiento" name="fechanacimiento" required>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button type="button" class="btn btn-success me-2" (click)="actualizarPerfil()">Guardar Cambios</button>
+                  <button type="button" class="btn btn-danger" (click)="cancelarEdicion()">Cancelar</button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

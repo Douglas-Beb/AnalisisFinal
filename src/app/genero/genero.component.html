@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Géneros</title>
+</head>
+
+<body>
+
+  <app-menu></app-menu>
+
+  <div class="container-table">
+    <div class="row">
+      <span class="welcome-message">Generos</span>
+      <nav>
+        <a href="/registrogenero"><b>Agregar nuevo genero</b></a>
+      </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Genero</th>
+              <th>Fecha Creacion</th>
+              <th>Usuario Creacion</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let genero of genero">
+              <td>{{ genero.idempresa }}</td>
+              <td>{{ genero.nombre }}</td>
+              <td>{{ genero.fechacreacion }}</td>
+              <td>{{ genero.usuariocreacion }}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(genero.idgenero)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+</body>
+
+</html>

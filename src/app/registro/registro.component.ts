@@ -15,9 +15,18 @@ export class RegistroComponent {
   usuario: any[] = [];
   nuevoUsuario: any = { idstatususuario: 1 };
   esPasswordValido = true;
+  sucursal: any[] = [];
 
   constructor(private http: HttpClient) {
     this.buscarUsuarios();
+    this.cargarSucursal();
+  }
+
+  cargarSucursal() {
+    this.http.get<any[]>("http://localhost:8080/sucursal/listar").subscribe(
+      data => this.sucursal = data,
+      error => console.error("Error al cargar las sucursales", error)
+    );
   }
 
   archivoSeleccionado(evento: any) {

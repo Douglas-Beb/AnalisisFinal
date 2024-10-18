@@ -25,11 +25,11 @@ export class LoginComponent {
     }
   }
 
-  darBienvenida(usuario: any) {
-    if (usuario) {
-      localStorage.setItem('usuario', JSON.stringify(usuario));
-      this.usuario = {}; // Restablecer los datos del formulario
-      location.href = '/menu'; // Redirigir al menú
+  darBienvenida(resultado: any) {
+    if (resultado) {
+      sessionStorage.setItem('usuario', JSON.stringify(resultado));
+      this.usuario = {};
+      location.href = '/menu';
     }
   }
 
@@ -50,10 +50,8 @@ export class LoginComponent {
 
   registrarIntentoFallido(error: any) {
     if (error.status === 423) {
-      // 423 Locked: Cuenta temporalmente bloqueada
       alert('Cuenta bloqueada temporalmente. Intente de nuevo en 1 minuto.');
     } else if (error.status === 401) {
-      // 401 Unauthorized: Usuario o contraseña incorrectos
       this.usuario.idusuario = '';
     this.usuario.password = '';
       alert('Usuario o contraseña incorrectos.');

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <app-menu></app-menu>
+
+  <div class="container-table">
+    <div class="row">
+      <span class="welcome-message">Usuarios</span>
+      <nav>
+        <a href="/registro"><b>Agregar nuevo usuario</b></a>
+      </nav>
+      <div class="col-md-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID Usuario</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha nacimiento</th>
+              <th>Sucursal</th>
+              <th>Estatus</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuario">
+              <td>{{ usuario.idusuario }}</td>
+              <td>{{ usuario.nombre }}</td>
+              <td>{{ usuario.apellido }}</td>
+              <td>{{ usuario.fechanacimiento }}</td>
+              <td>{{ getSucursal(usuario.idsucursal) }}</td>
+              <td>
+                <label class="switch">
+                  <input type="checkbox" [checked]="usuario.idstatususuario === 1" (change)="cambiarEstatus(usuario)">
+                  <span class="slider"></span>
+                </label>
+              </td>
+              <!-- <td>
+                <button type="button" class="btn btn-warning" (click)="actualizar()">Actualizar</button>
+              </td> -->
+              <td>
+                <button type="button" class="btn btn-danger" (click)="eliminar(usuario.idusuario)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav>
+      <a href="/menu"><b>Regresar</b></a>
+    </nav>
+  </div>
+
+</body>
+
+</html>
