@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+
+  <div class="container">
+    <form (ngSubmit)="login()" id="loginForm" class="form">
+      <p class="title">Login Form</p>
+      <input placeholder="Usuario: *" class="username input" type="text" [(ngModel)]="usuario.idusuario" name="idusuario" required>
+      <input placeholder="Contraseña: *" class="password input" type="password" [(ngModel)]="usuario.password" name="password" required>
+      <button class="btn" type="submit">Ingresar</button><br>
+      <p class="register">¿No tienes cuenta? <a href="/registro">Regístrate</a></p>
+      <p class="recuperar">¿Olvidaste tu contraseña? <a href="/recuperarPassword">Recupérala</a></p>
+    </form>
+  </div>
+
+</body>
+</html>

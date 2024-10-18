@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregunta Seguridad</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Preguntas de Seguridad</div>
+    <form method="post">
+      <div class="group-details">
+        <div class="form-group">
+          <label for="idusuario" class="details">ID Usuario:</label>
+          <input [(ngModel)]="nuevoUsuario.idusuario" type="text" id="idusuario" name="idusuario" placeholder="Ingresa tu ID Usuario" readonly>
+        </div>
+        <div class="form-group">
+          <label for="pregunta" class="details">Pregunta</label>
+          <input [(ngModel)]="nuevoUsuario.pregunta" type="text" placeholder="Ingresa tu pregunta" id="pregunta" name="pregunta">
+        </div>
+        <div class="form-group respuesta-group">
+          <label for="respuesta" class="details">Respuesta</label>
+          <input [(ngModel)]="nuevoUsuario.respuesta" type="text" placeholder="Ingresa tu respuesta" id="respuesta" name="respuesta" required>
+        </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="Guardar" (click)="guardarUsuario()">
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

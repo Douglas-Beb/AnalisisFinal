@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">Registro</div>
+    <form (ngSubmit)="guardarUsuario()">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Usuario</span>
+          <input type="text" placeholder="Usuario" [(ngModel)]="nuevoUsuario.idusuario" name="idusuario" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Nombre</span>
+          <input type="text" placeholder="Ingresa tu nombre" [(ngModel)]="nuevoUsuario.nombre" name="nombre" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Apellido</span>
+          <input type="text" placeholder="Ingresa tu apellido" [(ngModel)]="nuevoUsuario.apellido" name="apellido"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Fecha de nacimiento</span>
+          <input type="date" [(ngModel)]="nuevoUsuario.fechanacimiento" name="fechanacimiento" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Correo electrónico</span>
+          <input type="email" placeholder="Ingresa tu correo" [(ngModel)]="nuevoUsuario.correoelectronico" name="correo"
+            required>
+        </div>
+        <div class="input-box">
+          <span class="details">Número de teléfono</span>
+          <input type="text" placeholder="Ingresa tu número de teléfono" [(ngModel)]="nuevoUsuario.telefonomovil"
+            name="telefono" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Contraseña</span>
+          <input type="password" placeholder="Ingresa tu contraseña" [(ngModel)]="nuevoUsuario.password" name="password"
+            (ngModelChange)="validarPassword()" required>
+          <div *ngIf="!esPasswordValido" class="error-message">
+            La contraseña debe tener entre 8 y 20 caracteres, incluyendo al menos una letra mayúscula, una minúscula, un
+            número, y un carácter especial ($!%*?&).
+          </div>
+        </div>
+        <div class="input-box">
+          <span class="details">Sucursal</span>
+          <input type="number" placeholder="Confirma tu sucursal" [(ngModel)]="nuevoUsuario.idsucursal"
+            name="idsucursal" required>
+        </div>
+        <div class="input-box">
+          <span class="details">ID Status</span>
+          <input type="text" value="Activo" readonly>
+          <input type="hidden" [(ngModel)]="nuevoUsuario.idstatususuario" name="idstatus" required>
+        </div>
+      </div>
+      <div class="gender-details">
+        <input type="radio" name="gender" id="dot-1" [(ngModel)]="nuevoUsuario.idgenero" [value]="1">
+        <input type="radio" name="gender" id="dot-2" [(ngModel)]="nuevoUsuario.idgenero" [value]="2">
+        <span class="gender-title">Género</span>
+        <div class="category">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Masculino</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Femenino</span>
+          </label>
+        </div>
+      </div>
+      <div class="input-box">
+        <span class="details">Selecciona tu foto de Usuario</span><br>
+        <input type="file" (change)="archivoSeleccionado($event)">
+      </div>
+      <div class="button">
+        <input type="submit" value="Registro">
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
