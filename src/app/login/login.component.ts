@@ -41,7 +41,7 @@ export class LoginComponent {
     };
     return this.http
       .post<any>(
-        'https://3.81.31.146/usuario/login',
+        'http://50.17.14.140/usuario/login',
         this.usuario,
         httpOptions
       )
