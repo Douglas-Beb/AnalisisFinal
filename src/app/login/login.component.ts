@@ -41,7 +41,7 @@ export class LoginComponent {
     };
     return this.http
       .post<any>(
-        'https://72.44.46.16//usuario/login',
+        'https://clinquant-stardust-4533af.netlify.app/usuario/login',
         this.usuario,
         httpOptions
       )
